@@ -88,31 +88,43 @@
 # print(palindrome(""))                     # True
 
 #6.定义一个函数:完成时间转换功能，将传入的秒转换为小时、分钟、秒。
-def time_count(second):
-    if second <60:
-        return 0,0,second
-    if second <3600:
-        minutes = second // 60
-        rest_second = second % 60
-        return 0,minutes , rest_second
+# def time_count(second):
+#     if second <60:
+#         return 0,0,second
+#     if second <3600:
+#         minutes = second // 60
+#         rest_second = second % 60
+#         return 0,minutes , rest_second
+#     else:
+#         hours = second // 3600
+#         rest = second % 3600
+#         rest_minute = rest // 60
+#         rest_second = rest % 60
+#         return hours,rest_minute,rest_second
+# hour,minute,second=time_count(3661)
+# print(hour,minute,second)   # 1小时1分钟1秒
+# print(time_count(59))       # 0小时0分钟59秒
+#
+#
+# def time_count(second):
+#     hours = second // 3600
+#     minutes = (second % 3600) // 60
+#     seconds = second % 60
+#     return f"{hours}小时{minutes}分钟{seconds}秒"
+#
+#
+# print(time_count(3661))   # 1小时1分钟1秒
+# print(time_count(59))     # 0小时0分钟59秒
+# #7.定义一个函数:根据传入的三角形三个边的边长，判定三角形的类型(等边、等腰、普通，或者不能构成三角形)。
+def Triangle_determination(side1, side2, side3):
+    if side1 + side2 <= side3 or side1 + side3 <= side2 or side2 + side3 <= side1:
+        return "无法构成三角形"
+    if side1 == side2 == side3:
+        return "等边三角形"
+    elif side1 == side2 or side2 == side3 or side3 == side1:
+        return "等腰三角形"
     else:
-        hours = second // 3600
-        rest = second % 3600
-        rest_minute = rest // 60
-        rest_second = rest % 60
-        return hours,rest_minute,rest_second
-hour,minute,second=time_count(3661)
-print(hour,minute,second)   # 1小时1分钟1秒
-print(time_count(59))       # 0小时0分钟59秒
+        return "普通三角形"
 
-
-def time_count(second):
-    hours = second // 3600
-    minutes = (second % 3600) // 60
-    seconds = second % 60
-    return f"{hours}小时{minutes}分钟{seconds}秒"
-
-
-print(time_count(3661))   # 1小时1分钟1秒
-print(time_count(59))     # 0小时0分钟59秒
-#7.定义一个函数:根据传入的三角形三个边的边长，判定三角形的类型(等边、等腰、普通，或者不能构成三角形)。
+Triangle = Triangle_determination(5,5,5)
+print(Triangle)
